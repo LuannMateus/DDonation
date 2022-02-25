@@ -1,5 +1,7 @@
 import { Home } from './pages/Home';
 
-export const Routes = () => {
+const Routes = () => {
   return <Home />;
 };
+
+export default Routes;
