@@ -8,11 +8,14 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
-    "lint-code": "eslint src --max-warnings=0",
+    "lint-code": "eslint src",
     "lint-staged": "lint-staged"
   },
   "dependencies": {
+    "@expo-google-fonts/poppins": "^0.2.2",
+    "@expo/vector-icons": "^12.0.0",
     "expo": "~44.0.0",
+    "expo-font": "~10.0.4",
     "expo-status-bar": "~1.2.0",
     "react": "17.0.1",
     "react-dom": "17.0.1",
@@ -41,7 +44,7 @@
   },
   "lint-staged": {
     "src/**/*": [
-      "npm run lint-code -- --fix"
+      ""
     ]
   },
   "private": true

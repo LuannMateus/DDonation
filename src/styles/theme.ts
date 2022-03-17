@@ -1,6 +1,10 @@
 export const theme = {
   colors: {
-    bgPrimary: '#fff',
+    bgPrimary: 'rgba(100, 6, 80, 1)',
+    bgPrimaryWeek: 'rgba(100, 6, 80, 0.75)',
+    white: '#fff',
+    colorPrimary: 'rgba(100, 6, 80, 1)',
+    colorPrimary75: 'rgba(100, 6, 80, 0.75)',
   },
   font: {
     family: {
@@ -8,8 +12,8 @@ export const theme = {
     },
     sizes: {
       xsmall: '0.8rem',
-      small: '1.6rem',
-      medium: '2.4rem',
+      small: '16px',
+      medium: '22px',
       large: '3.2rem',
       xlarge: '4.0rem',
       xxlarge: '4.8rem',
