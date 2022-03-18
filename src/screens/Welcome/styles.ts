@@ -8,6 +8,8 @@ export const Wrapper = styled.View`
     justify-content: center;
     align-items: center;
 
+    padding-top: 147px;
+
     background: ${theme.colors.white};
   `}
 `;
@@ -16,16 +18,29 @@ export const Image = styled.Image`
   ${() => css``}
 `;
 
-export const Title = styled.Text`
+export const TitleContainer = styled.View`
   ${({ theme }) => css`
-    color: ${theme.colors.colorPrimary};
-    font-size: ${theme.font.sizes.medium};
+    width: 100%;
+
+    margin-top: ${theme.spacings.xhuge};
+    padding-left: ${theme.spacings.large};
   `}
 `;
 
-export const Description = styled.Text`
+export const DescriptionContainer = styled.View`
   ${({ theme }) => css`
-    font-size: ${theme.font.sizes.small};
-    color: ${theme.colors.colorPrimary75};
+    width: 100%;
+
+    margin-top: ${theme.spacings.xsmall};
+    padding-left: ${theme.spacings.large};
+  `}
+`;
+
+export const TouchableContainer = styled.View`
+  ${({ theme }) => css`
+    padding-top: ${theme.spacings.xhuge};
+    padding-left: ${theme.spacings.large};
+
+    align-self: flex-start;
   `}
 `;

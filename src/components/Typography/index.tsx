@@ -10,12 +10,14 @@ export type TypographyProps = {
   children: ReactNode;
   size?: 'medium' | 'small';
   weight?: 'regular' | 'bold';
+  color?: 'primaryColor' | 'primaryColor75' | 'white';
 };
 
 export const Typography = ({
   children,
   size = 'small',
   weight = 'regular',
+  color = 'primaryColor',
 }: TypographyProps) => {
   const [loadedFonts] = useFonts({
     Poppins_400Regular,
@@ -32,6 +34,7 @@ export const Typography = ({
           weight === 'regular' ? 'Poppins_400Regular' : 'Poppins_700Bold'
         }`,
       }}
+      color={color}
     >
       {children}
     </Styled.Title>
