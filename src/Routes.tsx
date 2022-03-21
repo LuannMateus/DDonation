@@ -1,7 +1,7 @@
-import { Welcome } from './screens/Welcome';
+import { Home } from './screens/Home';
 
 const Routes = () => {
-  return <Welcome />;
+  return <Home />;
 };
 
 export default Routes;
