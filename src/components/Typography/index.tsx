@@ -8,7 +8,7 @@ import * as Styled from './styles';
 
 export type TypographyProps = {
   children: ReactNode;
-  size?: 'medium' | 'small';
+  size?: 'medium' | 'small' | 'large';
   weight?: 'regular' | 'bold';
   color?: 'primaryColor' | 'primaryColor75' | 'white';
 };
