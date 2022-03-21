@@ -3,13 +3,14 @@ import {
   useFonts,
   Poppins_700Bold,
   Poppins_400Regular,
+  Poppins_600SemiBold,
 } from '@expo-google-fonts/poppins';
 import * as Styled from './styles';
 
 export type TypographyProps = {
   children: ReactNode;
-  size?: 'medium' | 'small' | 'large';
-  weight?: 'regular' | 'bold';
+  size?: 'xxsmall' | 'small' | 'medium' | 'large';
+  weight?: 'regular' | 'semiBold' | 'bold';
   color?: 'primaryColor' | 'primaryColor75' | 'white';
 };
 
@@ -22,6 +23,7 @@ export const Typography = ({
   const [loadedFonts] = useFonts({
     Poppins_400Regular,
     Poppins_700Bold,
+    Poppins_600SemiBold,
   });
 
   if (!loadedFonts) return null;
@@ -31,7 +33,11 @@ export const Typography = ({
       size={size}
       style={{
         fontFamily: `${
-          weight === 'regular' ? 'Poppins_400Regular' : 'Poppins_700Bold'
+          weight === 'regular'
+            ? 'Poppins_400Regular'
+            : weight === 'semiBold'
+            ? 'Poppins_600SemiBold'
+            : 'Poppins_700Bold'
         }`,
       }}
       color={color}

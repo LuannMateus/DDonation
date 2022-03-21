@@ -1,7 +1,7 @@
 import styled, { css, DefaultTheme } from 'styled-components/native';
 
 type TypographyStyledProps = {
-  size?: 'medium' | 'small' | 'large';
+  size?: 'xxsmall' | 'medium' | 'small' | 'large';
   color?: 'primaryColor' | 'primaryColor75' | 'white';
 };
 
@@ -18,6 +18,10 @@ const getFontSize = (size: string) => {
     case 'small':
       return css`
         font-size: 18px;
+      `;
+    case 'xxsmall':
+      return css`
+        font-size: 10px;
       `;
     default:
       return css`
