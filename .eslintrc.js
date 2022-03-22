@@ -30,4 +30,5 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'no-irregular-whitespace': 'off',
   },
+  ignorePatterns: ['/src/assets', '/src/assets/**'],
 };

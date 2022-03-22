@@ -8,7 +8,7 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
-    "lint-code": "eslint src",
+    "lint-code": "eslint src --max-warnings=1",
     "lint-staged": "lint-staged",
     "commit": "git-cz"
   },
@@ -49,7 +49,7 @@
   },
   "lint-staged": {
     "src/**/*": [
-      ""
+      "npm run lint-code --fix"
     ]
   },
   "private": true,

@@ -9,7 +9,7 @@ import * as Styled from './styles';
 
 export type TypographyProps = {
   children: ReactNode;
-  size?: 'xxsmall' | 'small' | 'medium' | 'large';
+  size?: 'xxsmall' | 'xsmall' | 'small' | 'medium' | 'large';
   weight?: 'regular' | 'semiBold' | 'bold';
   color?: 'primaryColor' | 'primaryColor75' | 'white';
 };

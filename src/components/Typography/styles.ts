@@ -1,31 +1,35 @@
 import styled, { css, DefaultTheme } from 'styled-components/native';
 
 type TypographyStyledProps = {
-  size?: 'xxsmall' | 'medium' | 'small' | 'large';
+  size?: 'xxsmall' | 'xsmall' | 'medium' | 'small' | 'large';
   color?: 'primaryColor' | 'primaryColor75' | 'white';
 };
 
-const getFontSize = (size: string) => {
+const getFontSize = (theme: DefaultTheme, size: string) => {
   switch (size) {
     case 'large':
       return css`
-        font-size: 26px;
+        font-size: ${theme.font.sizes.large};
       `;
     case 'medium':
       return css`
-        font-size: 22px;
+        font-size: ${theme.font.sizes.medium};
       `;
     case 'small':
       return css`
-        font-size: 18px;
+        font-size: ${theme.font.sizes.small};
+      `;
+    case 'xsmall':
+      return css`
+        font-size: ${theme.font.sizes.xsmall};
       `;
     case 'xxsmall':
       return css`
-        font-size: 10px;
+        font-size: ${theme.font.sizes.xxsmall};
       `;
     default:
       return css`
-        font-size: 14px;
+        font-size: ${theme.font.sizes.xsmall};
       `;
   }
 };
@@ -53,7 +57,7 @@ const getColor = (theme: DefaultTheme, color: string) => {
 
 export const Title = styled.Text<TypographyStyledProps>`
   ${({ theme, size = 'small', color = 'primaryColor' }) => css`
-    ${getFontSize(size)};
+    ${getFontSize(theme, size)};
 
     ${getColor(theme, color)}
   `}
