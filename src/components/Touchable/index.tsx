@@ -14,3 +14,13 @@ export const Touchable = ({ title }: TouchableProps) => {
     </Styled.TouchableButton>
   );
 };
+
+export const DonationTouchable = ({ title }: TouchableProps) => {
+  return (
+    <Styled.DonationTouchable>
+      <Typography color="white" weight="semiBold">
+        {title}
+      </Typography>
+    </Styled.DonationTouchable>
+  );
+};
