@@ -1,4 +1,4 @@
-import styled from 'styled-components/native';
+import styled, { css } from 'styled-components/native';
 
 export const Wrapper = styled.View`
   width: 100%;
@@ -7,11 +7,16 @@ export const Wrapper = styled.View`
   justify-content: center;
 
   flex: 1;
-
-  padding: 0 20px;
-  padding-top: 28px;
 `;
 
-export const TouchableCardButton = styled.TouchableOpacity``;
+export const SeeAllContainer = styled.View`
+  align-self: flex-end;
+`;
+
+export const TouchableCardButton = styled.TouchableOpacity`
+  ${({ theme }) => css`
+    padding-top: ${theme.padding.small};
+  `}
+`;
 
 export const EmergencyCardList = styled.FlatList``;

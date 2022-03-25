@@ -1,19 +1,34 @@
-import { EmergencyCard } from '../EmergencyCard';
+import { EmergencyCard, EmergencyCardProps } from '../EmergencyCard';
 import { Typography } from '../Typography';
 import * as Styled from './styles';
 
-export const EmergencyCases = () => {
+export type EmergencyCasesProps = {
+  cardsData: EmergencyCardProps[];
+};
+
+export const EmergencyCases = ({ cardsData = [] }: EmergencyCasesProps) => {
   return (
     <Styled.Wrapper>
-      <Typography weight="bold" size="large">
+      <Typography weight="semiBold" size="medium">
         Casos de emergência
       </Typography>
+      <Styled.SeeAllContainer>
+        <Typography size="xsmall" color="primaryColor75" underline>
+          Ver todos
+        </Typography>
+      </Styled.SeeAllContainer>
+
       <Styled.EmergencyCardList
-        data={[{ key: 1 }, { key: 2 }, { key: 3 }]}
-        renderItem={() => {
+        keyExtractor={(item) => {
+          const typedItem = item as EmergencyCardProps;
+
+          return typedItem.id;
+        }}
+        data={cardsData}
+        renderItem={({ item }) => {
           return (
             <Styled.TouchableCardButton activeOpacity={1}>
-              <EmergencyCard />
+              <EmergencyCard {...(item as EmergencyCardProps)} />
             </Styled.TouchableCardButton>
           );
         }}
