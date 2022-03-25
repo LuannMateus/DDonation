@@ -6,8 +6,6 @@ export const Wrapper = styled.View`
   display: flex;
   justify-content: center;
   align-items: flex-start;
-
-  padding-top: 28px;
 `;
 
 export const EmergencyCardImage = styled.Image`
