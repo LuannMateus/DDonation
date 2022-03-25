@@ -1,7 +1,8 @@
-import { CauseScreen } from './screens/Cause';
+import { Donation } from './screens/Donation';
+import mock from './screens/Donation/mock';
 
 const Routes = () => {
-  return <CauseScreen />;
+  return <Donation {...mock} />;
 };
 
 export default Routes;
