@@ -12,6 +12,8 @@ export type TypographyProps = {
   size?: 'xxsmall' | 'xsmall' | 'small' | 'medium' | 'large';
   weight?: 'regular' | 'semiBold' | 'bold';
   color?: 'primaryColor' | 'primaryColor75' | 'white';
+  paddingTop?: 0 | 1 | 2 | 3 | 4 | 5;
+  underline?: true | false;
 };
 
 export const Typography = ({
@@ -19,6 +21,8 @@ export const Typography = ({
   size = 'small',
   weight = 'regular',
   color = 'primaryColor',
+  paddingTop = 0,
+  underline = false,
 }: TypographyProps) => {
   const [loadedFonts] = useFonts({
     Poppins_400Regular,
@@ -41,6 +45,8 @@ export const Typography = ({
         }`,
       }}
       color={color}
+      paddingTop={paddingTop}
+      underline={underline}
     >
       {children}
     </Styled.Title>

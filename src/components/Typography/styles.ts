@@ -3,6 +3,8 @@ import styled, { css, DefaultTheme } from 'styled-components/native';
 type TypographyStyledProps = {
   size?: 'xxsmall' | 'xsmall' | 'medium' | 'small' | 'large';
   color?: 'primaryColor' | 'primaryColor75' | 'white';
+  paddingTop?: 0 | 1 | 2 | 3 | 4 | 5;
+  underline?: true | false;
 };
 
 const getFontSize = (theme: DefaultTheme, size: string) => {
@@ -55,10 +57,49 @@ const getColor = (theme: DefaultTheme, color: string) => {
   }
 };
 
+const getPaddingTop = (theme: DefaultTheme, value: number) => {
+  switch (value) {
+    case 1:
+      return css`
+        padding-top: ${theme.padding.xxsmall};
+      `;
+    case 2:
+      return css`
+        padding-top: ${theme.padding.xsmall};
+      `;
+    case 3:
+      return css`
+        padding-top: ${theme.padding.small};
+      `;
+    case 4:
+      return css`
+        padding-top: ${theme.padding.medium};
+      `;
+    case 5:
+      return css`
+        padding-top: ${theme.padding.large};
+      `;
+    default:
+      return css`
+        padding-top: 0;
+      `;
+  }
+};
+
 export const Title = styled.Text<TypographyStyledProps>`
-  ${({ theme, size = 'small', color = 'primaryColor' }) => css`
+  ${({
+    theme,
+    size = 'small',
+    color = 'primaryColor',
+    paddingTop = 0,
+    underline = false,
+  }) => css`
     ${getFontSize(theme, size)};
 
     ${getColor(theme, color)}
+
+    ${getPaddingTop(theme, paddingTop)};
+
+    text-decoration: ${underline ? 'underline' : 'none'};
   `}
 `;
