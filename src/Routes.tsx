@@ -1,7 +1,7 @@
-import { Home } from './screens/Home';
+import { CauseScreen } from './screens/Cause';
 
 const Routes = () => {
-  return <Home />;
+  return <CauseScreen />;
 };
 
 export default Routes;
