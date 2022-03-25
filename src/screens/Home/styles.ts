@@ -12,3 +12,15 @@ export const Wrapper = styled.SafeAreaView`
     padding-top: 64px;
   `}
 `;
+
+export const EmergencyCasesContainer = styled.View`
+  ${({ theme }) => css`
+    width: 100%;
+    padding-top: ${theme.padding.large};
+
+    flex: 1;
+
+    padding: 0 20px;
+    padding-top: 28px;
+  `}
+`;

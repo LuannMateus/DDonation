@@ -5,7 +5,7 @@ import * as Styled from './styles';
 export const Causes = () => {
   return (
     <Styled.Wrapper>
-      <Typography weight="bold" size="large">
+      <Typography weight="semiBold" size="medium">
         Causas
       </Typography>
       <Styled.DonationCausesContainer>
