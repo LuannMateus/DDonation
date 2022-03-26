@@ -8,7 +8,7 @@ export const Wrapper = styled.View`
   align-items: flex-start;
 `;
 
-export const EmergencyCardImage = styled.Image`
+export const DonationCardCardImage = styled.Image`
   width: 100%;
   height: 160px;
 

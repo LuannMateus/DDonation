@@ -2,7 +2,7 @@ import { ImageSourcePropType } from 'react-native';
 import { Typography } from '../Typography';
 import * as Styled from './styles';
 
-export type EmergencyCardProps = {
+export type DonationCardProps = {
   id: string;
   title: string;
   target: string;
@@ -10,16 +10,16 @@ export type EmergencyCardProps = {
   cardImage: ImageSourcePropType;
 };
 
-export const EmergencyCard = ({
+export const DonationCard = ({
   id,
   title = '',
   target = '',
   daysRemaining = 0,
   cardImage,
-}: EmergencyCardProps) => {
+}: DonationCardProps) => {
   return (
     <Styled.Wrapper testID={id}>
-      <Styled.EmergencyCardImage source={cardImage} />
+      <Styled.DonationCardCardImage source={cardImage} />
       <Typography weight="bold" size="medium" paddingTop={1}>
         {title}
       </Typography>

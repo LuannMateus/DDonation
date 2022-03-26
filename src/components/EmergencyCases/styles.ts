@@ -9,7 +9,7 @@ export const Wrapper = styled.View`
   flex: 1;
 `;
 
-export const SeeAllContainer = styled.View`
+export const SeeAllContainer = styled.TouchableOpacity`
   align-self: flex-end;
 `;
 
