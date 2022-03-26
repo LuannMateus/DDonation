@@ -7,6 +7,7 @@ export type PropsNavigationStack = {
   Welcome: undefined;
   Donation: DonationProps;
   Cause: CauseScreenProps;
+  SeeAll: undefined;
 };
 
 export type NavigationStackRoutes = 'Welcome' | 'Home' | 'Donation' | 'Cause';
