@@ -6,24 +6,37 @@ export const Wrapper = styled.View`
 
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
 
-    padding-top: 147px;
+    padding: 0px 10px;
+    padding-bottom: 36px;
 
     background: ${theme.colors.white};
   `}
 `;
 
+export const InfoContainer = styled.View`
+  height: 100%;
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+`;
+
 export const Image = styled.Image`
-  ${() => css``}
+  ${() => css`
+    height: 305px;
+
+    width: 100%;
+  `}
 `;
 
 export const TitleContainer = styled.View`
   ${({ theme }) => css`
     width: 100%;
 
-    margin-top: ${theme.spacings.xhuge};
-    padding-left: ${theme.spacings.large};
+    margin-top: ${theme.spacings.xlarge};
   `}
 `;
 
@@ -32,15 +45,17 @@ export const DescriptionContainer = styled.View`
     width: 100%;
 
     margin-top: ${theme.spacings.xsmall};
-    padding-left: ${theme.spacings.large};
   `}
 `;
 
 export const TouchableContainer = styled.View`
   ${({ theme }) => css`
-    padding-top: ${theme.spacings.xhuge};
-    padding-left: ${theme.spacings.large};
+    height: 100%;
 
-    align-self: flex-start;
+    display: flex;
+    justify-content: flex-end;
+    flex: 1;
+
+    padding: ${theme.padding.large} 0;
   `}
 `;
