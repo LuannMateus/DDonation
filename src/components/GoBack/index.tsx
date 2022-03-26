@@ -19,7 +19,9 @@ export const GoBack = ({ ...args }: GoBackProps) => {
       }}
       {...args}
     >
-      <Styled.ArrowIcon source={require('../../assets/images/ArrowIcon.png')} />
+      <Styled.ArrowIcon
+        source={require('../../assets/images/Icons/ArrowIcon.png')}
+      />
     </Styled.Wrapper>
   );
 };

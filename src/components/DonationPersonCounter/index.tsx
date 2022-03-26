@@ -10,7 +10,7 @@ export const DonationPersonCounter = () => {
           0
         </Typography>
         <Styled.HearthImage
-          source={require('../../assets/images/HearthIcon.png')}
+          source={require('../../assets/images/Icons/HearthIcon.png')}
         />
       </Styled.CounterAndHearthIconContainer>
     </Styled.Wrapper>

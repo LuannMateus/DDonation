@@ -21,22 +21,22 @@ export const Causes = () => {
       <Styled.DonationCausesContainer>
         <DonationButton
           title="Comida"
-          imageRelativePath={require('../../assets/images/FoodIcon.png')}
+          imageRelativePath={require('../../assets/images/Icons/FoodIcon.png')}
           onPress={() => navigation.navigate('Cause', { ...mock.causes[0] })}
         />
         <DonationButton
           title="Educação"
-          imageRelativePath={require('../../assets/images/EducationIcon.png')}
+          imageRelativePath={require('../../assets/images/Icons/EducationIcon.png')}
           onPress={() => navigation.navigate('Cause', { ...mock.causes[1] })}
         />
         <DonationButton
           title="Casa"
-          imageRelativePath={require('../../assets/images/HouseIcon.png')}
+          imageRelativePath={require('../../assets/images/Icons/HouseIcon.png')}
           onPress={() => navigation.navigate('Cause', { ...mock.causes[2] })}
         />
         <DonationButton
           title="Brinquedos"
-          imageRelativePath={require('../../assets/images/ToyIcon.png')}
+          imageRelativePath={require('../../assets/images/Icons/ToyIcon.png')}
           onPress={() => navigation.navigate('Cause', { ...mock.causes[3] })}
         />
       </Styled.DonationCausesContainer>

@@ -4,7 +4,7 @@ export const Profile = () => {
   return (
     <Styled.Wrapper>
       <Styled.ProfileImage
-        source={require('../../assets/images/ProfileIcon.png')}
+        source={require('../../assets/images/Icons/ProfileIcon.png')}
       />
     </Styled.Wrapper>
   );

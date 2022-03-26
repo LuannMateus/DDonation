@@ -18,7 +18,7 @@ export const Welcome = () => {
       <Styled.InfoContainer>
         <StatusBar style="auto" />
         <Styled.Image
-          source={require('../../assets/images/DonationIcon.png')}
+          source={require('../../assets/images/Icons/DonationIcon.png')}
         />
         <Styled.TitleContainer>
           <Typography weight="bold" size="medium" color="primaryColor">

@@ -17,8 +17,8 @@ export const DonationInfoBox = ({
       <Styled.TargetIcon
         source={
           type === 'target'
-            ? require('../../assets/images/TargetIcon.png')
-            : require('../../assets/images/MoneyDonationIcon.png')
+            ? require('../../assets/images/Icons/TargetIcon.png')
+            : require('../../assets/images/Icons/MoneyDonationIcon.png')
         }
       />
       <Styled.LabelAndValue>
