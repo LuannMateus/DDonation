@@ -1,13 +1,14 @@
+import { TouchableOpacityProps } from 'react-native';
 import { Typography } from '../Typography';
 import * as Styled from './styles';
 
-export type TouchableProps = {
+export type TouchableProps = TouchableOpacityProps & {
   title: string;
 };
 
-export const Touchable = ({ title }: TouchableProps) => {
+export const Touchable = ({ title, ...args }: TouchableProps) => {
   return (
-    <Styled.TouchableButton>
+    <Styled.TouchableButton {...args}>
       <Typography color="white" weight="bold">
         {title}
       </Typography>
@@ -15,9 +16,9 @@ export const Touchable = ({ title }: TouchableProps) => {
   );
 };
 
-export const DonationTouchable = ({ title }: TouchableProps) => {
+export const DonationTouchable = ({ title, onPress }: TouchableProps) => {
   return (
-    <Styled.DonationTouchable>
+    <Styled.DonationTouchable onPress={onPress}>
       <Typography color="white" weight="semiBold">
         {title}
       </Typography>

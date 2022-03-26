@@ -22,11 +22,12 @@ export const theme = {
     },
   },
   spacings: {
-    xxsmall: '10px',
-    xsmall: '14px',
-    small: '18px',
-    medium: '22px',
-    large: '26px',
+    xxsmall: '4px',
+    xsmall: '8px',
+    small: '12px',
+    medium: '16px',
+    large: '20px',
+    xlarge: '24px',
   },
   padding: {
     xxsmall: '4px',
