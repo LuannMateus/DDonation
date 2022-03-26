@@ -6,6 +6,7 @@ import { DonationModal } from '../../components/DonationModal';
 import { GoBack } from '../../components/GoBack';
 import { DonationTouchable } from '../../components/Touchable';
 import { Typography } from '../../components/Typography';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import * as Styled from './styles';
 
 export type DonationProps = {
@@ -18,15 +19,12 @@ export type DonationProps = {
   reached: number;
 };
 
-export const Donation = ({
-  image,
-  title,
-  daysRemaining,
-  by,
-  description,
-  target,
-  reached,
-}: DonationProps) => {
+export const Donation = () => {
+  const { image, title, daysRemaining, by, description, target, reached } =
+    useRoute()['params'] as DonationProps;
+
+  const navigation = useNavigation();
+
   const [isDonationModalOpen, setIsDonationModalOpen] = useState(false);
 
   const handleDonationModalOpen = () => {
@@ -40,7 +38,7 @@ export const Donation = ({
   return (
     <Styled.Wrapper>
       <StatusBar style="auto" />
-      <GoBack />
+      <GoBack onPress={() => navigation.goBack()} />
       <Styled.MainImage source={image} />
       <Styled.DonationInfoContainer>
         <Styled.TitleAndTimeContainer>

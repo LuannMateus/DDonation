@@ -1,7 +1,10 @@
+import { TouchableOpacityProps } from 'react-native';
 import { theme } from '../../styles/theme';
 import * as Styled from './styles';
 
-export const GoBack = () => {
+export type GoBackProps = TouchableOpacityProps;
+
+export const GoBack = ({ ...args }: GoBackProps) => {
   return (
     <Styled.Wrapper
       style={{
@@ -14,6 +17,7 @@ export const GoBack = () => {
         shadowOpacity: 0.2,
         shadowRadius: 3,
       }}
+      {...args}
     >
       <Styled.ArrowIcon source={require('../../assets/images/ArrowIcon.png')} />
     </Styled.Wrapper>

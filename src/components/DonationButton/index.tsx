@@ -1,8 +1,8 @@
-import { ImageSourcePropType } from 'react-native';
+import { ImageSourcePropType, TouchableOpacityProps } from 'react-native';
 import { Typography } from '../Typography';
 import * as Styled from './styles';
 
-export type DonationButtonProps = {
+export type DonationButtonProps = TouchableOpacityProps & {
   imageRelativePath: ImageSourcePropType;
   title: string;
 };
@@ -10,9 +10,10 @@ export type DonationButtonProps = {
 export const DonationButton = ({
   imageRelativePath,
   title,
+  ...args
 }: DonationButtonProps) => {
   return (
-    <Styled.Wrapper>
+    <Styled.Wrapper {...args}>
       <Styled.DonationImage source={imageRelativePath} />
       <Typography size="xxsmall" weight="semiBold">
         {title}

@@ -1,9 +1,18 @@
 import { StatusBar } from 'expo-status-bar';
+import { useNavigation } from '@react-navigation/native';
 import { Touchable } from '../../components/Touchable';
 import { Typography } from '../../components/Typography';
+
 import * as Styled from './styles';
+import { PropsStack } from '../../routes/Stack/models';
 
 export const Welcome = () => {
+  const navigation = useNavigation<PropsStack>();
+
+  const navigateToHome = () => {
+    navigation.navigate('Home');
+  };
+
   return (
     <Styled.Wrapper>
       <Styled.InfoContainer>
@@ -25,7 +34,7 @@ export const Welcome = () => {
       </Styled.InfoContainer>
 
       <Styled.TouchableContainer>
-        <Touchable title="Ajude-nos" />
+        <Touchable title="Ajude-nos" onPress={navigateToHome} />
       </Styled.TouchableContainer>
     </Styled.Wrapper>
   );

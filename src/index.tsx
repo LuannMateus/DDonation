@@ -1,16 +1,7 @@
-import Routes from './Routes';
-import { ThemeProvider } from 'styled-components';
-import { theme } from './styles/theme';
-import { GlobalStylesProvider } from './styles/globalStyle';
+import Routes from './routes';
 
 const Index = () => {
-  return (
-    <ThemeProvider theme={theme}>
-      <GlobalStylesProvider>
-        <Routes />
-      </GlobalStylesProvider>
-    </ThemeProvider>
-  );
+  return <Routes />;
 };
 
 export default Index;

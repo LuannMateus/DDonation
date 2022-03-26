@@ -1,12 +1,17 @@
 import { EmergencyCard, EmergencyCardProps } from '../EmergencyCard';
 import { Typography } from '../Typography';
+import { useNavigation } from '@react-navigation/native';
 import * as Styled from './styles';
+import { PropsStack } from '../../routes/Stack/models';
+import mock from '../../screens/Donation/mock';
 
 export type EmergencyCasesProps = {
   cardsData: EmergencyCardProps[];
 };
 
 export const EmergencyCases = ({ cardsData = [] }: EmergencyCasesProps) => {
+  const navigation = useNavigation<PropsStack>();
+
   return (
     <Styled.Wrapper>
       <Typography weight="semiBold" size="medium">
@@ -27,7 +32,10 @@ export const EmergencyCases = ({ cardsData = [] }: EmergencyCasesProps) => {
         data={cardsData}
         renderItem={({ item }) => {
           return (
-            <Styled.TouchableCardButton activeOpacity={1}>
+            <Styled.TouchableCardButton
+              activeOpacity={1}
+              onPress={() => navigation.navigate('Donation', { ...mock })}
+            >
               <EmergencyCard {...(item as EmergencyCardProps)} />
             </Styled.TouchableCardButton>
           );
