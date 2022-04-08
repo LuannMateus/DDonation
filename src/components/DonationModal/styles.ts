@@ -37,6 +37,8 @@ export const EnterPriceContainer = styled.View`
 `;
 
 export const EnterPriceTextInput = styled.TextInput`
+  width: 220px;
+
   font-size: 18px;
   text-align: center;
 `;

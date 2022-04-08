@@ -10,7 +10,7 @@ export const Menu = () => {
           Olá!
         </Typography>
         <Typography size="medium" weight="bold">
-          John Doe
+          Ellie William
         </Typography>
       </Styled.WelcomeContainer>
       <Profile />

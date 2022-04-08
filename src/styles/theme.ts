@@ -8,6 +8,8 @@ export const theme = {
     primaryButtonColor: '#7E5976',
     donationButtonBg: '#DFDFDF',
     boxShadowColor: '#000',
+    primaryBorderColor: 'rgba(126, 89, 118, 0.75)',
+    logoutButtonBg: '#D7D7D7',
   },
   font: {
     family: {

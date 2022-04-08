@@ -8,8 +8,14 @@ export type PropsNavigationStack = {
   Donation: DonationProps;
   Cause: CauseScreenProps;
   SeeAll: undefined;
+  Profile: undefined;
 };
 
-export type NavigationStackRoutes = 'Welcome' | 'Home' | 'Donation' | 'Cause';
+export type NavigationStackRoutes =
+  | 'Welcome'
+  | 'Home'
+  | 'Donation'
+  | 'Cause'
+  | 'Profile';
 
 export type PropsStack = NativeStackNavigationProp<PropsNavigationStack>;

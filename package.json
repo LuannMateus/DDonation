@@ -8,7 +8,7 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
-    "lint-code": "eslint src --max-warnings=10",
+    "lint-code": "eslint src --max-warnings=8",
     "lint-staged": "lint-staged",
     "commit": "git-cz"
   },
