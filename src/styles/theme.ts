@@ -10,6 +10,8 @@ export const theme = {
     boxShadowColor: '#000',
     primaryBorderColor: 'rgba(126, 89, 118, 0.75)',
     logoutButtonBg: '#D7D7D7',
+    lineColor: 'rgba(224, 224, 224, 1)',
+    black50: 'rgba(0, 0, 0, 0.5)',
   },
   font: {
     family: {

@@ -5,7 +5,7 @@ type ProfileContainerProps = {
 };
 
 export const Wrapper = styled.SafeAreaView`
-  flex: 2;
+  flex: 1;
 
   height: 100%;
   width: 100%;

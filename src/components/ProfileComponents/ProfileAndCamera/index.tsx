@@ -5,7 +5,13 @@ import * as Styled from './styles';
 import { useNavigation } from '@react-navigation/native';
 import { PropsStack } from '../../../routes/Stack/models';
 
-export const ProfileAndCamera = () => {
+export type ProfileAndCameraProps = {
+  showNameAndEmail?: boolean;
+};
+
+export const ProfileAndCamera = ({
+  showNameAndEmail,
+}: ProfileAndCameraProps) => {
   const navigate = useNavigation<PropsStack>();
 
   return (
@@ -48,14 +54,16 @@ export const ProfileAndCamera = () => {
             source={require('../../../assets/images/Icons/CameraIcon.png')}
           />
         </Styled.CameraIconContainer>
-        <Styled.NameAndEmailContainer>
-          <Typography weight="bold" size="small">
-            Ellie William
-          </Typography>
-          <Typography color="primaryColor75" size="xsmall">
-            ellieWilliam@email.com
-          </Typography>
-        </Styled.NameAndEmailContainer>
+        {showNameAndEmail && (
+          <Styled.NameAndEmailContainer>
+            <Typography weight="bold" size="small">
+              Ellie William
+            </Typography>
+            <Typography color="primaryColor75" size="xsmall">
+              ellieWilliam@email.com
+            </Typography>
+          </Styled.NameAndEmailContainer>
+        )}
       </Styled.ProfileContainer>
     </Styled.Wrapper>
   );

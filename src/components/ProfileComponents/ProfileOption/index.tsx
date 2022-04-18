@@ -1,15 +1,15 @@
-import { ImageSourcePropType } from 'react-native';
+import { ImageSourcePropType, TouchableOpacityProps } from 'react-native';
 import { Typography } from '../../Typography';
 import * as Styled from './styles';
 
-export type ProfileOptionProps = {
+export type ProfileOptionProps = TouchableOpacityProps & {
   icon: ImageSourcePropType;
   label: string;
 };
 
-export const ProfileOption = ({ icon, label }: ProfileOptionProps) => {
+export const ProfileOption = ({ icon, label, ...args }: ProfileOptionProps) => {
   return (
-    <Styled.Wrapper>
+    <Styled.Wrapper {...args}>
       <Styled.Icon source={icon} />
       <Typography>{label}</Typography>
       <Styled.TouchableArrowContainer>
