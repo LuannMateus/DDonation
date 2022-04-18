@@ -7,6 +7,7 @@ import { Donation } from '../../screens/Donation';
 import { CauseScreen } from '../../screens/Cause';
 import { SeeAll } from '../../screens/SeeAll';
 import { Profile } from '../../screens/Profile';
+import { MyProfile } from '../../screens/MyProfile';
 
 const { Navigator, Screen } =
   createNativeStackNavigator<PropsNavigationStack>();
@@ -23,6 +24,7 @@ export default function Stack() {
       <Screen name="Cause" component={CauseScreen} />
       <Screen name="SeeAll" component={SeeAll} />
       <Screen name="Profile" component={Profile} />
+      <Screen name="MyProfile" component={MyProfile} />
     </Navigator>
   );
 }

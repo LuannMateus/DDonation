@@ -1,10 +1,14 @@
+import { useNavigation } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
 import { LogoutButton } from '../../components/ProfileComponents/LogoutButton';
 import { ProfileAndCamera } from '../../components/ProfileComponents/ProfileAndCamera';
 import { ProfileOption } from '../../components/ProfileComponents/ProfileOption';
+import { PropsStack } from '../../routes/Stack/models';
 import * as Styled from './styles';
 
 export const Profile = () => {
+  const navigation = useNavigation<PropsStack>();
+
   return (
     <Styled.Wrapper>
       <StatusBar style="auto" />
@@ -13,6 +17,7 @@ export const Profile = () => {
         <ProfileOption
           icon={require('../../assets/images/Icons/MyProfileIcon.png')}
           label="Meu perfil"
+          onPress={() => navigation.navigate('MyProfile')}
         />
         <ProfileOption
           icon={require('../../assets/images/Icons/ProfileDonationIcon.png')}

@@ -9,6 +9,7 @@ export type PropsNavigationStack = {
   Cause: CauseScreenProps;
   SeeAll: undefined;
   Profile: undefined;
+  MyProfile: undefined;
 };
 
 export type NavigationStackRoutes =
@@ -16,6 +17,7 @@ export type NavigationStackRoutes =
   | 'Home'
   | 'Donation'
   | 'Cause'
-  | 'Profile';
+  | 'Profile'
+  | 'MyProfile';
 
 export type PropsStack = NativeStackNavigationProp<PropsNavigationStack>;
