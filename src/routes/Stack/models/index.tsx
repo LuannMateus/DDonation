@@ -10,6 +10,7 @@ export type PropsNavigationStack = {
   SeeAll: undefined;
   Profile: undefined;
   MyProfile: undefined;
+  Checkout: undefined;
 };
 
 export type NavigationStackRoutes =
@@ -18,6 +19,7 @@ export type NavigationStackRoutes =
   | 'Donation'
   | 'Cause'
   | 'Profile'
-  | 'MyProfile';
+  | 'MyProfile'
+  | 'Checkout';
 
 export type PropsStack = NativeStackNavigationProp<PropsNavigationStack>;

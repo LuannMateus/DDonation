@@ -3,7 +3,7 @@ import { Typography } from '../Typography';
 import * as Styled from './styles';
 
 export type CreditCardProps = TCreditCard & {
-  backView: boolean;
+  backView?: boolean;
 };
 
 export const CreditCard = ({

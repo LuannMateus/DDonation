@@ -46,14 +46,14 @@ export const CreditCardIconContainer = styled.View`
   `}
 `;
 
+export const CreditCardIcon = styled.Image``;
+
 export const CreditCardContainer = styled.View`
   display: flex;
   align-items: center;
 
   margin-bottom: 30px;
 `;
-
-export const CreditCardIcon = styled.Image``;
 
 export const CreditCardInfoContainer = styled.View`
   width: 100%;

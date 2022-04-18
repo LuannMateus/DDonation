@@ -8,6 +8,7 @@ import { DonationTouchable } from '../../components/Touchable';
 import { Typography } from '../../components/Typography';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import * as Styled from './styles';
+import { PropsStack } from '../../routes/Stack/models';
 
 export type DonationProps = {
   image: ImageSourcePropType;
@@ -23,7 +24,7 @@ export const Donation = () => {
   const { image, title, daysRemaining, by, description, target, reached } =
     useRoute()['params'] as DonationProps;
 
-  const navigation = useNavigation();
+  const navigation = useNavigation<PropsStack>();
 
   const [isDonationModalOpen, setIsDonationModalOpen] = useState(false);
 
@@ -33,6 +34,7 @@ export const Donation = () => {
 
   const handleDonationModalClose = () => {
     setIsDonationModalOpen(false);
+    navigation.navigate('Checkout');
   };
 
   return (
