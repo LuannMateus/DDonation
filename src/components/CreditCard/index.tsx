@@ -1,8 +1,8 @@
-import { TCreditCard } from '../../models/CreditCard/CreditCard';
+import { TDonorCreditCard } from '../../models/DonorCreditCard';
 import { Typography } from '../Typography';
 import * as Styled from './styles';
 
-export type CreditCardProps = TCreditCard & {
+export type CreditCardProps = TDonorCreditCard & {
   backView?: boolean;
 };
 

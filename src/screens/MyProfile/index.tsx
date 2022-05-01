@@ -1,6 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
 import { Animated } from 'react-native';
+
+import { updateDonorCreditCardById } from '../../api/DonorCreditCard/updateDonorCreditCardById';
 import { CreditCard } from '../../components/CreditCard';
 import { ProfileAndCamera } from '../../components/ProfileComponents/ProfileAndCamera';
 import {
@@ -8,18 +10,50 @@ import {
   ProfileTwoColumnsInput,
 } from '../../components/ProfileComponents/ProfileInput';
 import { Typography } from '../../components/Typography';
-import { TCreditCard } from '../../models/CreditCard/CreditCard';
+import { TDonorCreditCard } from '../../models/DonorCreditCard';
 import * as Styled from './styles';
+
+import { TEMPORARY_USER_ID, TEMPORARY_CREDIT_CARD_TYPE_ID } from '@env';
 
 export const MyProfile = () => {
   const [widthAnimated] = useState(new Animated.Value(320));
   const [backView, setBackView] = useState(false);
-  const [creditCardState, setCreditCardState] = useState<TCreditCard>({
+  const [creditCardState, setCreditCardState] = useState<TDonorCreditCard>({
+    id: '',
+    creditCardTypeId: '',
+    donorId: '',
     holderName: 'John Doe',
-    creditCardNumber: '000 000 000 000',
-    cvv: '123',
-    validity: '12/20',
+    creditCardNumber: '123123123123',
+    validity: '1220',
+    cvv: 123,
   });
+
+  const handleUpdateCreditCard = async () => {
+    const donorCreditCard = {
+      creditCardTypeId: TEMPORARY_CREDIT_CARD_TYPE_ID,
+      donorId: TEMPORARY_USER_ID,
+      holderName: creditCardState.holderName,
+      creditCardNumber: creditCardState.creditCardNumber,
+      validity: creditCardState.validity,
+      cvv: creditCardState.cvv,
+    } as TDonorCreditCard;
+
+    try {
+      const updatedDonorCreditCard = await updateDonorCreditCardById(
+        '0ec97c58-1c0b-457e-9681-5907e0f5e64c',
+        donorCreditCard,
+      );
+
+      if (!updatedDonorCreditCard) throw new Error();
+
+      setCreditCardState((prevState) => ({
+        ...prevState,
+        ...updatedDonorCreditCard,
+      }));
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
   const creditCardAnimation = (showBack: boolean) => {
     if (showBack && !backView) {
@@ -83,7 +117,12 @@ export const MyProfile = () => {
           keyboardType="email-address"
           marginTop={5}
           onChangeText={(value) => {
-            setCreditCardState((prevState) => ({ ...prevState, cvv: value }));
+            const parsedValue = parseInt(value);
+
+            setCreditCardState((prevState) => ({
+              ...prevState,
+              cvv: parsedValue,
+            }));
             creditCardAnimation(false);
           }}
         />
@@ -116,6 +155,7 @@ export const MyProfile = () => {
             }));
             creditCardAnimation(false);
           }}
+          onEndEditing={() => handleUpdateCreditCard()}
         />
         <ProfileInput
           label="Número do Cartão"
@@ -132,6 +172,7 @@ export const MyProfile = () => {
             }));
             creditCardAnimation(false);
           }}
+          onEndEditing={() => handleUpdateCreditCard()}
         />
         <Styled.DataAndCvvContainer>
           <ProfileTwoColumnsInput
@@ -152,10 +193,11 @@ export const MyProfile = () => {
               }));
               creditCardAnimation(false);
             }}
+            onEndEditing={() => handleUpdateCreditCard()}
           />
           <ProfileTwoColumnsInput
             label="CVV"
-            value={creditCardState.cvv}
+            value={creditCardState.cvv.toString()}
             mask
             type="custom"
             options={{
@@ -165,9 +207,15 @@ export const MyProfile = () => {
             marginTop={5}
             onPressIn={() => creditCardAnimation(true)}
             onChangeText={(value) => {
-              setCreditCardState((prevState) => ({ ...prevState, cvv: value }));
+              const parsedValue = parseInt(value);
+
+              setCreditCardState((prevState) => ({
+                ...prevState,
+                cvv: parsedValue,
+              }));
               creditCardAnimation(true);
             }}
+            onEndEditing={() => handleUpdateCreditCard()}
           />
         </Styled.DataAndCvvContainer>
       </Styled.CreditCardInfoContainer>
