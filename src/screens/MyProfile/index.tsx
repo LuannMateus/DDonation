@@ -40,7 +40,7 @@ export const MyProfile = () => {
 
     try {
       const updatedDonorCreditCard = await updateDonorCreditCardById(
-        '0ec97c58-1c0b-457e-9681-5907e0f5e64c',
+        '26ed226b-9c9e-45c0-b18f-819e637d3dfe',
         donorCreditCard,
       );
 

@@ -1,16 +1,11 @@
 import { TDonorCreditCard } from '../../models/DonorCreditCard';
 import { axios } from '../../utils/axios';
 
-export const updateDonorCreditCardById = async (
-  id: string,
+export const createDonorCreditCard = async (
   donorCreditCard: TDonorCreditCard,
 ) => {
   try {
-    const res = await axios.patch(`/donorCreditCards/${id}`, donorCreditCard);
-
-    const data = await res.data;
-
-    return data;
+    await axios.post('/donorCreditCards', donorCreditCard);
   } catch (e) {
     console.log(e);
   }

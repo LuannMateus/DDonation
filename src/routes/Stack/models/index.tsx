@@ -1,13 +1,11 @@
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { CauseScreenProps } from '../../../screens/Cause';
-import { DonationProps } from '../../../screens/Donation';
 
 export type PropsNavigationStack = {
   Home: undefined;
   Welcome: undefined;
-  Donation: DonationProps;
-  Cause: CauseScreenProps;
-  SeeAll: undefined;
+  Donation: { id: string };
+  Cause: { id: string };
+  SeeAll: { category: string };
   Profile: undefined;
   MyProfile: undefined;
   Checkout: undefined;

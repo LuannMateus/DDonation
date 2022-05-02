@@ -1,9 +1,10 @@
 import { API_URL } from '@env';
 
 export class Http {
-  public static async get<T>(url: string): Promise<T> {
+  public static async get<T>(url: string, signal?: AbortSignal): Promise<T> {
     const res = await fetch(`${API_URL}${url}`, {
       method: 'GET',
+      signal,
     });
 
     const json = await res.json();
@@ -37,8 +38,6 @@ export class Http {
     });
 
     const json = await res.json();
-
-    console.log('H' + json);
 
     return json;
   }

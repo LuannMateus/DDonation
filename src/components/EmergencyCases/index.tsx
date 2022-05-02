@@ -3,13 +3,17 @@ import { Typography } from '../Typography';
 import { useNavigation } from '@react-navigation/native';
 import * as Styled from './styles';
 import { PropsStack } from '../../routes/Stack/models';
-import mock from '../../screens/Donation/mock';
+import { TDonationRequest } from '../../models/DonationRequest';
 
 export type EmergencyCasesProps = {
-  cardsData: DonationCardProps[];
+  cardsData: TDonationRequest[];
+  category: string;
 };
 
-export const EmergencyCases = ({ cardsData = [] }: EmergencyCasesProps) => {
+export const EmergencyCases = ({
+  cardsData = [],
+  category,
+}: EmergencyCasesProps) => {
   const navigation = useNavigation<PropsStack>();
 
   return (
@@ -17,7 +21,13 @@ export const EmergencyCases = ({ cardsData = [] }: EmergencyCasesProps) => {
       <Typography weight="semiBold" size="medium">
         Casos de emergência
       </Typography>
-      <Styled.SeeAllContainer onPress={() => navigation.navigate('SeeAll')}>
+      <Styled.SeeAllContainer
+        onPress={() =>
+          navigation.navigate('SeeAll', {
+            category,
+          })
+        }
+      >
         <Typography size="xsmall" color="primaryColor75" underline>
           Ver todos
         </Typography>
@@ -31,12 +41,16 @@ export const EmergencyCases = ({ cardsData = [] }: EmergencyCasesProps) => {
         }}
         data={cardsData}
         renderItem={({ item }) => {
+          const typedItem = item as TDonationRequest;
+
           return (
             <Styled.TouchableCardButton
               activeOpacity={1}
-              onPress={() => navigation.navigate('Donation', { ...mock })}
+              onPress={() =>
+                navigation.navigate('Donation', { id: typedItem.id })
+              }
             >
-              <DonationCard {...(item as DonationCardProps)} />
+              <DonationCard {...typedItem} />
             </Styled.TouchableCardButton>
           );
         }}
