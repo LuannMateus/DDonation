@@ -1,9 +1,8 @@
-import { ImageSourcePropType } from 'react-native';
 import { Typography } from '../Typography';
 import * as Styled from './styles';
 
 export type DonationInfoCardProps = {
-  image: ImageSourcePropType;
+  image: string | undefined;
   title: string;
   daysRemaining: number;
   by: string;
@@ -17,20 +16,27 @@ export const DonationInfoCard = ({
 }: DonationInfoCardProps) => {
   return (
     <Styled.Wrapper>
-      <Styled.MainImage source={image} />
+      <Styled.MainImage
+        source={{
+          uri: image,
+        }}
+      />
       <Styled.DonationInfoContainer>
-        <Styled.TitleAndTimeContainer>
+        <Styled.TitleContainer>
           <Typography size="medium" weight="semiBold" paddingTop={2}>
             {title}
           </Typography>
+        </Styled.TitleContainer>
+
+        <Styled.DaysRemainingContainer>
           <Typography size="xsmall" weight="regular" paddingTop={2}>
             {daysRemaining} dias restantes
           </Typography>
-        </Styled.TitleAndTimeContainer>
+        </Styled.DaysRemainingContainer>
 
         <Styled.ByContainer>
           <Typography size="xsmall" color="primaryColor75">
-            Por
+            Por{' '}
           </Typography>
           <Typography size="xsmall" weight="bold">
             {by}

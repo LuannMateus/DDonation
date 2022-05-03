@@ -1,3 +1,5 @@
+import { TDonor } from './Donor';
+
 export type TDonationRequest = {
   id: string;
   title: string;
@@ -9,4 +11,5 @@ export type TDonationRequest = {
   emergency: boolean;
   target: number;
   reached: number;
+  owner?: TDonor;
 };

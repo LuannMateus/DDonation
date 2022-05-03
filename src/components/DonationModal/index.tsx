@@ -3,13 +3,21 @@ import { PriceBox } from './PriceBox';
 import { Typography } from '../Typography';
 import * as Styled from './styles';
 import { Keyboard } from 'react-native';
+import { useState } from 'react';
 
 export interface DonationModalProps {
   isOpen: boolean;
   closeModal: () => void;
+  handleDonation: (amount: number) => void;
 }
 
-export const DonationModal = ({ isOpen, closeModal }: DonationModalProps) => {
+export const DonationModal = ({
+  isOpen,
+  closeModal,
+  handleDonation,
+}: DonationModalProps) => {
+  const [amountState, setAmountState] = useState<number | undefined>(undefined);
+
   return (
     <Styled.Wrapper>
       <Modal
@@ -39,17 +47,27 @@ export const DonationModal = ({ isOpen, closeModal }: DonationModalProps) => {
             <Styled.EnterPriceTextInput
               placeholder="Digite o preço"
               keyboardType="numeric"
+              value={amountState?.toString() || ''}
+              onChangeText={(text) => {
+                if (text === '') setAmountState(undefined);
+                else setAmountState(parseFloat(text));
+              }}
             />
           </Styled.EnterPriceContainer>
 
           <Styled.PricesContainer>
-            <PriceBox price={100} />
-            <PriceBox price={50} />
-            <PriceBox price={5} />
+            <PriceBox price={100} onPress={() => setAmountState(100)} />
+            <PriceBox price={50} onPress={() => setAmountState(50)} />
+            <PriceBox price={5} onPress={() => setAmountState(5)} />
           </Styled.PricesContainer>
 
           <Styled.DonationTouchableContainer>
-            <Styled.DonationTouchable onPress={closeModal}>
+            <Styled.DonationTouchable
+              onPress={() => {
+                closeModal();
+                handleDonation(amountState || 0);
+              }}
+            >
               <Typography size="small" weight="semiBold" color="white">
                 Doar
               </Typography>

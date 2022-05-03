@@ -11,6 +11,8 @@ import { PropsStack } from '../../routes/Stack/models';
 import { findDonationRequestById } from '../../api/DonationRequest/findDonationRequestById';
 import { TDonationRequest } from '../../models/DonationRequest';
 
+import { TEMPORARY_USER_ID } from '@env';
+
 export type DonationProps = TDonationRequest;
 
 export const Donation = () => {
@@ -27,7 +29,6 @@ export const Donation = () => {
 
   const handleDonationModalClose = () => {
     setIsDonationModalOpen(false);
-    navigation.navigate('Checkout');
   };
 
   const handleDonationRequest = useCallback(async () => {
@@ -36,13 +37,24 @@ export const Donation = () => {
 
       if (!donationRequest) throw new Error('Não foi possível encontrar');
 
-      console.log(id);
-
       setDonationRequestState(donationRequest);
     } catch (e) {
       console.log(e);
     }
   }, [id]);
+
+  const handleDonation = useCallback(
+    (amount: number) => {
+      if (!amount || !donationRequestState?.id) return;
+
+      navigation.navigate('Checkout', {
+        donorId: TEMPORARY_USER_ID,
+        donationRequestId: donationRequestState.id,
+        amount,
+      });
+    },
+    [navigation, donationRequestState?.id],
+  );
 
   useEffect(() => {
     handleDonationRequest();
@@ -58,21 +70,23 @@ export const Donation = () => {
         }}
       />
       <Styled.DonationInfoContainer>
-        <Styled.TitleAndTimeContainer>
+        <Styled.TitleContainer>
           <Typography size="medium" weight="semiBold" paddingTop={2}>
             {donationRequestState?.title}
           </Typography>
+        </Styled.TitleContainer>
+        <Styled.DaysRemainingContainer>
           <Typography size="xsmall" weight="regular" paddingTop={2}>
             {donationRequestState?.daysRemaining} dias restantes
           </Typography>
-        </Styled.TitleAndTimeContainer>
+        </Styled.DaysRemainingContainer>
 
         <Styled.ByContainer>
           <Typography size="xsmall" color="primaryColor75">
-            Por
+            Por{' '}
           </Typography>
           <Typography size="xsmall" weight="bold">
-            {donationRequestState?.ownerId}
+            {donationRequestState?.owner?.firstName || 'Não informado'}
           </Typography>
         </Styled.ByContainer>
 
@@ -99,6 +113,7 @@ export const Donation = () => {
       <DonationModal
         isOpen={isDonationModalOpen}
         closeModal={handleDonationModalClose}
+        handleDonation={handleDonation}
       />
     </Styled.Wrapper>
   );

@@ -1,4 +1,5 @@
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { TCheckout } from '../../../models/Checkout';
 
 export type PropsNavigationStack = {
   Home: undefined;
@@ -8,7 +9,7 @@ export type PropsNavigationStack = {
   SeeAll: { category: string };
   Profile: undefined;
   MyProfile: undefined;
-  Checkout: undefined;
+  Checkout: TCheckout;
 };
 
 export type NavigationStackRoutes =

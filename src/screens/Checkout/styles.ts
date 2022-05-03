@@ -19,6 +19,8 @@ export const Wrapper = styled.SafeAreaView<WrapperProps>`
   `}
 `;
 
+export const ScrollWrapper = styled.ScrollView``;
+
 export const BackAndTitleContainer = styled.View`
   width: 100%;
 
@@ -85,5 +87,5 @@ export const TotalContainer = styled.View`
 
 export const TouchableDonationContainer = styled.View`
   width: 100%;
-  margin-top: 24px;
+  margin: 24px 0;
 `;

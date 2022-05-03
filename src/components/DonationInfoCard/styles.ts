@@ -14,11 +14,15 @@ export const MainImage = styled.Image`
   border-radius: 4px;
 `;
 
-export const TitleAndTimeContainer = styled.View`
+export const TitleContainer = styled.View`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+`;
+
+export const DaysRemainingContainer = styled.View`
+  align-self: flex-end;
 `;
 
 export const ByContainer = styled.View`
@@ -26,7 +30,7 @@ export const ByContainer = styled.View`
 
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
 `;
 
