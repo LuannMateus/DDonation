@@ -2,6 +2,7 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { TCheckout } from '../../../models/Checkout';
 
 export type PropsNavigationStack = {
+  SignIn: undefined;
   Home: undefined;
   Welcome: undefined;
   Donation: { id: string };
@@ -13,6 +14,7 @@ export type PropsNavigationStack = {
 };
 
 export type NavigationStackRoutes =
+  | 'SignIn'
   | 'Welcome'
   | 'Home'
   | 'Donation'
