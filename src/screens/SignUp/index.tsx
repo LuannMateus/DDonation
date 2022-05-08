@@ -1,35 +1,27 @@
 import { StatusBar } from 'expo-status-bar';
 import { BackButtonAndTitle } from '../../components/BackButtonAndTitle';
 import { GoggleButton, LoginButton } from '../../components/Login/LoginButton';
-import { LoginInput } from '../../components/Login/LoginInput';
+import { SignUpInput } from '../../components/Login/SignUpInput';
 import { SafeAreaContainer } from '../../components/SafeAreaContainer';
 import { Typography } from '../../components/Typography';
 
 import * as Styled from './styles';
 
-export const SignIn = () => {
+export const SignUp = () => {
   return (
     <SafeAreaContainer>
       <StatusBar style="auto" />
-      <BackButtonAndTitle title="Entrar" hasBackButton />
+      <BackButtonAndTitle title="Criar Conta" />
       <Styled.Main>
-        <Styled.InputGroupContainer>
-          <Styled.InputContainer>
-            <LoginInput />
-          </Styled.InputContainer>
-          <Styled.InputContainer>
-            <LoginInput type="password" />
-          </Styled.InputContainer>
-        </Styled.InputGroupContainer>
-        <Styled.ForgotPasswordContainer>
-          <Typography size="xsmall" color="primaryColor75" weight="semiBold">
-            Esqueceu a senha?
-          </Typography>
-        </Styled.ForgotPasswordContainer>
+        <SignUpInput label="Nome completo" placeholder="John Doe" />
+        <SignUpInput label="Email" placeholder="example@mail.com" />
+        <SignUpInput label="Senha" type="password" />
+        <SignUpInput label="Confirmar senha" type="password" />
+
         <Styled.LoginTouchableContainer>
           <LoginButton>
             <Typography color="white" weight="semiBold">
-              Entrar
+              Criar Conta
             </Typography>
           </LoginButton>
         </Styled.LoginTouchableContainer>
@@ -38,7 +30,7 @@ export const SignIn = () => {
         </Styled.OrContainer>
         <Styled.GoogleTouchableContainer>
           <GoggleButton>
-            <Typography weight="semiBold">Entrar com Google</Typography>
+            <Typography weight="semiBold">Criar com Google</Typography>
           </GoggleButton>
         </Styled.GoogleTouchableContainer>
         <Styled.ToggleModeContainer>

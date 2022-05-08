@@ -1,4 +1,8 @@
-import styled from 'styled-components/native';
+import styled, { css } from 'styled-components/native';
+
+type TitleContainerProps = {
+  hasBackButton?: boolean;
+};
 
 export const Wrapper = styled.View`
   width: 100%;
@@ -18,14 +22,16 @@ export const TouchableArrow = styled.TouchableOpacity`
   margin-left: 14px;
 `;
 
-export const TitleContainer = styled.View`
-  flex: 1;
+export const TitleContainer = styled.View<TitleContainerProps>`
+  ${({ hasBackButton = false }) => css`
+    flex: 1;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-  padding-right: 30px;
+    padding-right: ${hasBackButton === true ? '30px' : '0px'};
+  `}
 `;
 
 export const BackButtonImage = styled.Image``;

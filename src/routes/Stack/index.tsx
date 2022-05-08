@@ -10,13 +10,15 @@ import { Profile } from '../../screens/Profile';
 import { MyProfile } from '../../screens/MyProfile';
 import { Checkout } from '../../screens/Checkout';
 import { SignIn } from '../../screens/SignIn';
+import { SignUp } from '../../screens/SignUp';
 
 const { Navigator, Screen } =
   createNativeStackNavigator<PropsNavigationStack>();
 
 export default function Stack() {
   return (
-    <Navigator initialRouteName="SignIn" screenOptions={{ headerShown: false }}>
+    <Navigator initialRouteName="SignUp" screenOptions={{ headerShown: false }}>
+      <Screen name="SignUp" component={SignUp} />
       <Screen name="SignIn" component={SignIn} />
       <Screen name="Welcome" component={Welcome} />
       <Screen name="Home" component={Home} />

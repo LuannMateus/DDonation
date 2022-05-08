@@ -4,19 +4,30 @@ import { Typography } from '../Typography';
 
 import * as Styled from './styles';
 
-export const BackButtonAndTitle = () => {
+export type BackButtonAndTitleProps = {
+  hasBackButton?: boolean;
+  title: string;
+};
+
+export const BackButtonAndTitle = ({
+  title = '',
+  hasBackButton = false,
+}: BackButtonAndTitleProps) => {
   const navigate = useNavigation<PropsStack>();
 
   return (
     <Styled.Wrapper>
-      <Styled.TouchableArrow onPress={() => navigate.goBack()}>
-        <Styled.BackButtonImage
-          source={require('../../assets/images/Icons/LeftPurpleArrowIcon.png')}
-        />
-      </Styled.TouchableArrow>
+      {hasBackButton && (
+        <Styled.TouchableArrow onPress={() => navigate.goBack()}>
+          <Styled.BackButtonImage
+            source={require('../../assets/images/Icons/LeftPurpleArrowIcon.png')}
+          />
+        </Styled.TouchableArrow>
+      )}
+
       <Styled.TitleContainer>
         <Typography color="primaryColor" weight="semiBold">
-          Entrar
+          {title}
         </Typography>
       </Styled.TitleContainer>
     </Styled.Wrapper>

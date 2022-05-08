@@ -25,7 +25,7 @@ export const LoginButton = ({ children, ...args }: LoginInputProps) => {
   );
 };
 
-export const GoggleButton = ({ ...args }: LoginInputProps) => {
+export const GoggleButton = ({ children, ...args }: LoginInputProps) => {
   return (
     <Styled.GoogleWrapper
       style={{
@@ -40,7 +40,7 @@ export const GoggleButton = ({ ...args }: LoginInputProps) => {
       <Styled.GoogleIcon
         source={require('../../../assets/images/Icons/GoogleIcon.png')}
       />
-      <Typography weight="semiBold">Entrar com Google</Typography>
+      {children}
     </Styled.GoogleWrapper>
   );
 };
