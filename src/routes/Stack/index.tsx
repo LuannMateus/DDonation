@@ -17,7 +17,7 @@ const { Navigator, Screen } =
 
 export default function Stack() {
   return (
-    <Navigator initialRouteName="SignUp" screenOptions={{ headerShown: false }}>
+    <Navigator initialRouteName="SignIn" screenOptions={{ headerShown: false }}>
       <Screen name="SignUp" component={SignUp} />
       <Screen name="SignIn" component={SignIn} />
       <Screen name="Welcome" component={Welcome} />

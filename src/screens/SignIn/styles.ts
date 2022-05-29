@@ -1,12 +1,7 @@
 import styled from 'styled-components/native';
 
-export const Main = styled.View`
+export const Main = styled.ScrollView`
   flex: 1;
-
-  width: 100%;
-
-  display: flex;
-  justify-content: center;
 
   padding: 0 20px;
 `;
@@ -56,11 +51,10 @@ export const ToggleModeContainer = styled.View`
 
   display: flex;
   flex-direction: row;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
 
-  margin-top: 18px;
-  margin-bottom: 18px;
+  margin: 54px 0;
 `;
 
 export const ToggleModeInput = styled.TouchableOpacity``;

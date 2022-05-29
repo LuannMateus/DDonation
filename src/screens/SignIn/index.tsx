@@ -4,21 +4,57 @@ import { GoggleButton, LoginButton } from '../../components/Login/LoginButton';
 import { LoginInput } from '../../components/Login/LoginInput';
 import { SafeAreaContainer } from '../../components/SafeAreaContainer';
 import { Typography } from '../../components/Typography';
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 
 import * as Styled from './styles';
+import { useState } from 'react';
+import { PropsStack } from '../../routes/Stack/models';
+import { useNavigation } from '@react-navigation/native';
 
 export const SignIn = () => {
+  const navigation = useNavigation<PropsStack>();
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleSignIn = async () => {
+    if (email === '' || password === '') {
+      console.warn('Email or password is empty');
+    }
+
+    console.log(email, password);
+
+    const auth = getAuth();
+
+    try {
+      const user = await signInWithEmailAndPassword(auth, email, password);
+
+      if (user) {
+        console.log(user);
+
+        navigation.navigate('Home');
+      } else {
+        console.warn('User not found');
+      }
+    } catch (e) {
+      console.warn('Error: ', e);
+    }
+  };
+
   return (
     <SafeAreaContainer>
       <StatusBar style="auto" />
-      <BackButtonAndTitle title="Entrar" hasBackButton />
+      <BackButtonAndTitle title="Entrar" />
       <Styled.Main>
         <Styled.InputGroupContainer>
           <Styled.InputContainer>
-            <LoginInput />
+            <LoginInput onChangeText={(email) => setEmail(email)} />
           </Styled.InputContainer>
           <Styled.InputContainer>
-            <LoginInput type="password" />
+            <LoginInput
+              type="password"
+              onChangeText={(password) => setPassword(password)}
+            />
           </Styled.InputContainer>
         </Styled.InputGroupContainer>
         <Styled.ForgotPasswordContainer>
@@ -27,7 +63,7 @@ export const SignIn = () => {
           </Typography>
         </Styled.ForgotPasswordContainer>
         <Styled.LoginTouchableContainer>
-          <LoginButton>
+          <LoginButton onPress={handleSignIn}>
             <Typography color="white" weight="semiBold">
               Entrar
             </Typography>
@@ -45,7 +81,7 @@ export const SignIn = () => {
           <Typography>Não possui uma conta? </Typography>
           <Styled.ToggleModeInput>
             <Typography color="primaryColor75" weight="semiBold">
-              Criar Conta
+              Entrar na Conta
             </Typography>
           </Styled.ToggleModeInput>
         </Styled.ToggleModeContainer>

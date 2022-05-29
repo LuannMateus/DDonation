@@ -7,7 +7,7 @@ export type LoginInputProps = TextInputProps & {
   type?: 'email' | 'password';
 };
 
-export const LoginInput = ({ type = 'email' }: LoginInputProps) => {
+export const LoginInput = ({ type = 'email', ...args }: LoginInputProps) => {
   return (
     <Styled.Wrapper>
       <Styled.LabelContainer>
@@ -31,6 +31,7 @@ export const LoginInput = ({ type = 'email' }: LoginInputProps) => {
           placeholderTextColor={theme.colors.primaryBg75}
           keyboardType={type === 'email' ? 'email-address' : 'default'}
           secureTextEntry={type === 'password'}
+          {...args}
         />
         {type === 'password' && (
           <Styled.ToggleViewPasswordIcon
